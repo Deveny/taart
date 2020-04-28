@@ -1,0 +1,568 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <title>Helenahhh</title>
+        <link rel="icon" href="" type="image/jpg">
+        <meta name="keywords" content="">
+        <meta name="author" content="Deveny Faruque - deve1000">
+        <meta name="robots" content="index, follow">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link href="https://fonts.googleapis.com/css?family=Kanit|Montserrat|Montserrat+Subrayada|Roboto|Rubik|Signika+Negative&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css?family=Roboto:100,300,400&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="scroll.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+          <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+
+        <style>@font-face {
+  font-family: soviet;
+  src: url("assets/fonts/LeagueMonoVariable.ttf");
+}
+
+@font-face {
+  font-family: sovietdik;
+  src: url("assets/fonts/LeagueMono-ExtraBoldExtended.woff");
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: soviet;
+  background-color: lightsteelblue;
+  color: white;
+  height: 100vh;
+  user-select: none;
+  box-shadow: 2px 2px 30px aquamarine inset, -2px -2px 30px aquamarine inset;
+  overflow-x: scroll;
+}
+
+/*LETTERS*/
+h4 {
+  text-align: center;
+  width: 100%;
+  padding: 0;
+  margin: 0.5em 0;
+  font-size: 0.8rem;
+  cursor: pointer;
+  font-weight: 400;
+  text-transform: uppercase;
+}
+h5 {
+  font-size: 0.8rem;
+  font-weight: 300;
+}
+h1 {
+  font-size: 2.5rem;
+  font-family: sovietdik;
+  filter: blur(3px);
+}
+h1:hover {
+  filter: none;
+}
+h2 {
+  font-family: sovietdik;
+  text-transform: uppercase;
+  text-align: center;
+  margin: 0 1em;
+  padding: 0;
+  font-size: 1.8em;
+  filter: blur(2px);
+  display: inline-block;
+}
+h6 {
+  padding: 0;
+  margin: 0;
+  color: aquamarine;
+}
+
+span {
+  text-align: center;
+  color: white;
+  text-transform: uppercase;
+  border: 1px solid white;
+}
+
+.types span{
+    margin: 0 1em;
+    width: 25vw;
+            }
+.tags span {
+  width: 12vw;
+  margin: 0 0.2em;
+}
+span:hover {
+  background-color: white;
+  color: lightsteelblue !important ;
+}
+
+h2:hover {
+  filter: none;
+  cursor: pointer;
+}
+a {
+  text-decoration: none;
+  margin: 5px;
+  padding: 2px;
+  color: inherit;
+}
+p {
+  padding: 0;
+  margin: 2px 0;
+}
+
+/*AUDIOPLAYER*/
+audio {
+  width: 16em;
+  height: 20px;
+  filter: sepia(100%) contrast(150%) saturate(9) hue-rotate(-35deg);
+  background-color: lightsteelblue;
+}
+
+ul {
+  list-style-type: none;
+  padding: 1em 0;
+  margin: 0;
+  cursor: pointer;
+  color: aquamarine;
+  font-weight: 300;
+  font-size: 0.8rem;
+}
+li:hover {
+  background-color: lightgray;
+}
+.playing {
+  color: white;
+}
+#progress-bar {
+  -webkit-appearance: none;
+  width: 100%;
+  height: 0.5em;
+  background: white;
+  outline: none;
+}
+
+#progress-bar::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 0.5em;
+  height: 3em;
+  background: lightsteelblue;
+  border: 1px solid aquamarine;
+  cursor: pointer;
+}
+
+#progress-bar::-moz-range-thumb {
+  width: 1.5em;
+  height: 1.5em;
+  background: aquamarine;
+  cursor: pointer;
+}
+
+audio:focus,
+button:focus {
+  outline: none;
+}
+
+button {
+  text-align: center;
+  padding: 0;
+  font-size: 1.5rem;
+  background-color: lightsteelblue;
+  color: aquamarine;
+  cursor: pointer;
+  border: none;
+  width: 100%;
+  height: 2em;
+}
+
+/*BLOKKEN*/
+.header {
+  padding: 14em 1.5em 1.5em 1.5em;
+  text-align: center;
+}
+.info {
+  display: none;
+  position: fixed;
+  width: 70vw;
+  height: 70vh;
+  font-family: sovietdik;
+  margin: 0;
+  padding: 0;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-image: url(studio.jpg);
+  background-size: cover;
+  color: lightsteelblue;
+  box-shadow: 10px 10px 10px white;
+  z-index: 100;
+}
+.overlay {
+  position: fixed;
+  height: 100vh;
+  width: 100vw;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  display: none;
+  z-index: 50;
+  background-color: black;
+  opacity: 0.7;
+}
+.home {
+  width: 100vw;
+  height: auto;
+  text-align: center;
+}
+
+/*WORK*/
+.item {
+  position: relative;
+  margin: 0 0.2em;
+  padding: 0;
+  width: 12vw;
+}
+.item img {
+  z-index: 10;
+  width: 12vw;
+  height: 12vw;
+  mix-blend-mode: multiply;
+}
+
+.work {
+  display: none;
+}
+
+.tags, .types {
+  display: flex;
+  padding: 2em 0;
+  width: 100%;
+}
+.all {
+  padding: 0;
+  margin: 0;
+  display: flex;
+  width: 100%;
+  overflow-y: scroll;
+  overflow-x: visible;
+  align-content: flex-start;
+  justify-content: flex-start;
+}
+
+.playerframe {
+  z-index: -100;
+  position: absolute;
+  width: 12vw;
+  margin: auto;
+  right: 0;
+  left: 0;
+  height: 16em;
+}
+
+.buffer {
+  height: 12vw;
+  width: 50vw;
+  user-select: none;
+  opacity: 0;
+}
+/*LIFE*/
+.life {
+  display: none;
+}
+            .types{
+                  justify-content: center;
+            }
+
+.released,
+.forthcoming {
+  padding: 0;
+  margin: 0;
+  display: flex;
+  width: 100%;
+  overflow-y: scroll;
+  overflow-x: visible;
+  align-content: flex-start;
+                      justify-content: center;
+}
+
+.unit {
+  position: relative;
+  margin: 0 1em;
+  padding: 0;
+  width: 25vw;
+}
+.unit img {
+  z-index: 10;
+  width: 25vw;
+  height: 25vw;
+}
+
+        </style>
+</head>
+<body>
+     <div class="info">
+  </div>
+    <div class="overlay"></div>
+<div class="header">
+    <h1><a href="index.html">HELENAH</a></h1>
+    <h4>?</h4>
+</div>
+
+<div class="home">
+    <h2>life</h2><h2>work</h2>
+</div>
+
+ 
+
+<div>
+  <div class="life">
+      
+      <div class="types">
+          <span>released</span>
+      <span>forthcoming</span></div>
+      <div>
+      <div class="released">
+          <div class="unit">
+          <img src="assets/logo12.jpg" width="200" height="200">
+              <h4>Helenahh - Helenahh</h4>
+            
+          </div>
+      </div>
+      <div class="forthcoming">
+          
+            <div class="unit">
+          <img src="assets/logo.jpg" width="200" height="200">
+                          <h4>Filibus LP</h4>
+          </div>
+          
+            <div class="unit">
+          <img src="assets/logo.jpg" width="200" height="200">
+                          <h4>Helenahh Leftovers</h4>
+          </div>
+          
+            <div class="unit">
+          <img src="assets/logo.jpg" width="200" height="200">
+                          <h4>OT LP</h4>
+          </div>
+          
+            <div class="unit">
+          <img src="assets/logo.jpg" width="200" height="200">
+                          <h4>Songs LP</h4>
+          </div>
+          
+            <div class="unit">
+          <img src="assets/logo.jpg" width="200" height="200">
+                                      <h4>Tape LP</h4>
+          </div>
+          
+      </div>
+          </div>
+  </div>
+  <div class="work">
+      <div class='tags'>
+    <span>editing</span>
+    <span>mastering</span>
+    <span>recording</span>
+    <span>mixing</span>
+    <span>sound-design</span>
+    <span>soundtracks</span>
+    <span>sonic-branding</span>
+    <span>vocal-coaching</span>
+</div>
+      <div class="all">
+          
+   <div class="buffer"><img src="assets/logo.jpg"></div>    
+<div class="item recording mixing" id="flx">
+  <img src="assets/logo13.jpg"><h4>Fluxys</h4>
+   <div class="music"></div>
+</div>
+          
+   
+<div class="item sonic-branding" id="warmstew">
+  <img src="assets/logo4-1.jpg"><h4>Warmste Week 2019</h4>
+   <div class="music"></div>
+</div>
+
+
+<div class="item mastering" id="burnout">
+  <img src="assets/logo7-1.jpg"><h4>Burnout</h4>
+   <div class="music"></div>
+</div>
+
+
+<div class="item sonic-branding sound-design" id="sba">
+  <img src="assets/logo2-1.jpg"><h4>StuBru Actievideos</h4>
+   <div class="music"></div>
+</div>      
+          
+ <div class="item editing" id="mnm">
+  <img src="assets/logo3-1.jpg"><h4>MNM Mashups</h4>
+   <div class="music"></div>
+</div>
+
+<div class="item editing" id="sbpi">
+  <img src="assets/logo2-2.jpg"><h4>StuBru Power Intro's</h4>
+   <div class="music"></div>
+</div>
+
+<div class="item recording mixing soundtracks sound-design" id="warmathon">
+  <img src="assets/logo11-1.jpg"><h4>StuBru Warmathon</h4>
+   <div class="music"></div>
+</div>
+
+<div class="item recording" id="sob">
+  <img src="assets/logo.jpg"><h4>Studio Onderbergen</h4>
+   <div class="music"></div>
+</div>
+
+<div class="item sonic-branding" id="kerstre">
+  <img src="assets/logo8-1.jpg"><h4>Eén Kerst Rebranding</h4>
+   <div class="music"></div>
+</div>
+
+<div class="item sound-design" id="sd">
+  <img src="assets/logo.jpg"><h4>SD Drones</h4>
+   <div class="music"></div>
+</div>
+
+<div class="item soundtracks mixing" id="sbdank">
+  <img src="assets/logo2-2.jpg"><h4>StuBru Bedankingsvideo</h4>
+   <div class="music"></div>
+</div>
+
+<div class="item soundtracks sound-design" id="yonas">
+  <img src="assets/logo9-1.jpg"><h4>The Countdown</h4>
+   <div class="music"></div>
+</div>
+
+<div class="item soundtracks sound-design" id="arno">
+  <img src="assets/logo10-1.jpg"><h4>Touch Of Gold</h4>
+   <div class="music"></div>
+</div>
+
+
+<div class="item soundtracks sound-design" id="siebert">
+  <img src="assets/logo5-1.jpg"><h4>Truck</h4>
+   <div class="music"></div>
+</div>
+          
+   <div class="buffer"><img src="assets/logo.jpg"></div>   
+
+            <div class="playerframe"></div>
+
+      </div>
+  </div>
+</div>
+    
+
+
+    </body>
+    <script>
+        
+        function changeProgressBar() {
+                    const progressBar = document.querySelector('#progress-bar'); 
+            var audio = $('audio');
+    audio.currentTime = progressBar.value;
+            alert(audio.currentTime);
+}
+        
+        function modalClose(){
+            $(document).click(function(event) {
+        if (!$(event.target).closest(".info,.header h4").length) {
+            $("body").find(".info").hide()
+        }
+    });
+        }
+
+             $(document).ready(function() {
+                
+
+
+$('.home h2').click(function(){
+            $(this).siblings('h2').hide();
+            var open = $(this).text();
+            $('.'+open).show().siblings().hide();
+            $('.'+open).siblings().children(".item").show();
+            //bufferruimte
+            $('.all').animate({
+    scrollLeft:$('.item:first').position().left});
+            //headerruimte
+            $('.header').animate({padding:'1.5em'});
+    //released
+    $('.types span:first').click();
+        });
+        
+$('.tags span').click(function(){
+            var tags = $(this).text();
+             //toon alleen de items met tag
+            $('.item.'+tags).show();
+            $('.item').not('.'+tags).hide().children('.music').empty();
+             //verkleuren tags
+            $(this).css({backgroundColor:'transparent',color:'white'});
+             $('.tags span').not(this).css({backgroundColor:'white'});
+             //verzamelen in het midden
+            $('.all').scrollLeft(0);
+                                      var goto = $(".playerframe").offset().left;          
+                    $('.buffer').width(goto);
+        });
+                 
+        
+
+$('.item').click(function(){
+               $(".all").off("scroll");
+
+            //scrollen naar midden
+            var goto = $(".playerframe").offset().left;          
+             var top = $(this).children('img').offset().left;
+             var xpos = $('.all').scrollLeft();
+             $(this).parent('.all').animate({ scrollLeft:xpos+(top-goto)}, function(){
+            $('.all').on('scroll',function(){
+                 if($('.content').is(':visible')){
+                var on = $('.content').parent('.music').siblings('img').offset().left;
+                var xpos = $('.all').scrollLeft();
+                if ((30+xpos+(on-goto))<xpos){$('.item').children('.music').empty();}
+                                    else if (xpos < (xpos+(on-goto)-30)){$('.item').children('.music').empty();}
+                 }      });
+             });
+             // player laden
+           $(this).children('.music').load('werk/'+$(this).attr('id')+'.html');
+            $('.item').not(this).children('.music').empty();
+             //verkleuren
+             $(this).children('img').css("mix-blend-mode","normal");
+             $('.item').not(this).children('img').css('mix-blend-mode','color');
+             //match tags
+           var classList = $(this)[0].className.split(' ');
+             var kut = classList.toString();
+             var hm = $( ".tags span" ).filter(function() {
+          return kut.match($(this).text()); 
+       });
+             $(hm).css({backgroundColor:'transparent',color:'white'});
+             $('.tags span').not(hm).css('background-color','white');
+             
+        });
+                 
+$('.header h4').click(function(){
+                     $('.info').show();
+    modalClose();
+                 });
+                 
+$('.types span').click(function(){
+    //albums
+            var type = $(this).text();
+            $('.'+type).show().siblings('div').hide();
+            $('.'+type).siblings().children(".unit").show();
+    //verkleuring
+            $(this).css({backgroundColor:'transparent',color:'white'});
+             $('.types span').not(this).css({backgroundColor:'white'});
+});
+      
+    
+        
+                
+             });
+
+        
+</script>
+</html>

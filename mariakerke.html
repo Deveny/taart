@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <title>Taart</title>
+        <link rel="icon" href="" type="image/jpg">
+        <meta name="keywords" content="">
+        <meta name="author" content="Deveny Faruque - deve1000">
+        <meta name="robots" content="index, follow">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+          <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+
+        <style>
+/*BASIC BODY*/
+body {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  height: 100%;
+  width: 100%;
+  font-family: Times New Roman;
+  user-select: none;
+}
+/*LETTERS*/
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+a:hover {
+  text-decoration: underline;
+}
+/*MENU*/
+.nav {
+    float: right;
+}
+.header {
+  position: relative;
+}
+.title {
+    float: left;
+}
+/*EVENTS*/
+.content{padding: 2em;}
+.events {width: 50vw;
+    margin: 5em auto;
+            }
+.events img{
+    width: 100%;
+            }
+.ver {
+  max-height: 90vh;
+  max-width: 100% !important;
+}
+.hor {
+  width: 100%;
+}
+            
+/*MARIAKERKE*/
+.album{
+    margin: 5em auto;
+           display: flex; }
+.f1{flex-wrap: wrap;
+            align-content: center;}
+.f3{flex-wrap: nowrap;
+    overflow-x: scroll;
+            }
+.faseeen{cursor: zoom-in;
+            width: 100px;
+            height: auto;}
+.fasetwee{  width: 150px;
+            height: 150px;}
+.fasedrie{  height: 80vh;
+            width: auto;}
+
+        </style>
+</head><body><div class="header">
+  <div class="title">
+    <a href="index.html">Taart in de brievenbus</a></div>
+<div class="nav">
+    <a href="javascript:void(0)" onclick="Open('work')" class="active">info</a>
+    <a href="javascript:void(0)" onclick="Open('work')" class="active">schudden</a>
+  </div></div>
+    <div class="content">
+        <div class="album f1">
+            
+        </div>
+    
+    </div>
+</body>
+    <script>
+$( document ).ready(function() {
+
+    var folder = "mk-square/";
+
+$.ajax({
+    url : folder,
+    success: function (data) {
+        $(data).find("a").attr("href", function (i, val) {
+            if( val.match(/\.(jpe?g|png|gif)$/) ) { 
+                $(".album").append( "<img class='faseeen' src='"+ val +"'>" );
+            } 
+        });
+    }
+});
+    
+    $('.album img').on("click",function(){
+        if ($(this).hasClass('fasetwee')){
+            /*2 NAAR 3*/
+            $('.album img').removeClass('fasetwee').addClass('fasedrie');
+            /*VIERKANT NAAR RECHTHOEK*/
+             var c=$(this).attr('src').replace('square','rect');
+            $(this).attr('src',c);
+            /*SCROLL NAAR ACTUELE*/
+             var left = $(this).offset().left;
+             var xpos = $('.album').scrollLeft();
+             $(this).parent('.album').animate({ scrollLeft:xpos+(left-50)});
+            /*WRAP TO NOWRAP*/
+            $(this).parent('.album').removeClass('f1').addClass('f3');
+
+        }else if($(this).hasClass('faseeen')){
+            /*1 NAAR 2*/
+            $('.album img').removeClass('faseeen').addClass('fasetwee');
+            
+        
+        }else if($(this).hasClass('fasedrie')){
+        $('.album img').removeClass('fasedrie').addClass('fasetwee');
+            }
+    });
+        });
+        
+        
+                                            
+                                            
+                                            
+                                            
+                                            
+                                            
+                                            
+                                            
+                                            
+                                            
+                                            
+                                            
+                                            
+                                            
+                                                               
+                                            
+                                            
+                                            
+                                            
+                                            
+        
+</script>
+</html>
