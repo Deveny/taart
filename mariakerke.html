@@ -10,6 +10,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
           <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+     
 
         <style>
 /*BASIC BODY*/
@@ -90,10 +91,7 @@ a:hover {
     </div>
 </body>
     <script>
-$( document ).ready(function() {
-
-    var folder = "mk-square/";
-
+         var folder = "mk-square/";
 $.ajax({
     url : folder,
     success: function (data) {
@@ -102,9 +100,9 @@ $.ajax({
                 $(".album").append( "<img class='faseeen' src='"+ val +"'>" );
             } 
         });
-    }
-});
-    
+    }, complete: function(){
+        
+
     $('.album img').on("click",function(){
         if ($(this).hasClass('fasetwee')){
             /*2 NAAR 3*/
@@ -113,9 +111,43 @@ $.ajax({
              var c=$(this).attr('src').replace('square','rect');
             $(this).attr('src',c);
             /*SCROLL NAAR ACTUELE*/
-             var left = $(this).offset().left;
+             var top = $(this).offset().left;
+             alert(top);
+            alert(xpos);
              var xpos = $('.album').scrollLeft();
-             $(this).parent('.album').animate({ scrollLeft:xpos+(left-50)});
+             $(this).parent('.album').animate({ scrollLeft:xpos+(top-50)});
+            /*WRAP TO NOWRAP*/
+            $(this).parent('.album').removeClass('f1').addClass('f3');
+
+        }else if($(this).hasClass('faseeen')){
+            /*1 NAAR 2*/
+            $('.album img').removeClass('faseeen').addClass('fasetwee');
+            
+        
+        }else if($(this).hasClass('fasedrie')){
+        $('.album img').removeClass('fasedrie').addClass('fasetwee');
+            }
+    });
+    }
+
+});
+            
+        
+        
+$( document ).ready(function() {
+  $('.album img').on("click",function(){
+        if ($(this).hasClass('fasetwee')){
+            /*2 NAAR 3*/
+            $('.album img').removeClass('fasetwee').addClass('fasedrie');
+            /*VIERKANT NAAR RECHTHOEK*/
+             var c=$(this).attr('src').replace('square','rect');
+            $(this).attr('src',c);
+            /*SCROLL NAAR ACTUELE*/
+             var top = $(this).offset().left;
+            alert(top);
+            alert(xpos);
+             var xpos = $('.album').scrollLeft();
+             $(this).parent('.album').animate({ scrollLeft:xpos+(top-50)});
             /*WRAP TO NOWRAP*/
             $(this).parent('.album').removeClass('f1').addClass('f3');
 
@@ -129,26 +161,7 @@ $.ajax({
             }
     });
         });
-        
-        
-                                            
-                                            
-                                            
-                                            
-                                            
-                                            
-                                            
-                                            
-                                            
-                                            
-                                            
-                                            
-                                            
-                                            
-                                                               
-                                            
-                                            
-                                            
+                                    
                                             
                                             
         
