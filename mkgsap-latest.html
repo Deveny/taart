@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <title>Taart</title>
+        <link rel="icon" href="" type="image/jpg">
+        <meta name="keywords" content="">
+        <meta name="author" content="Deveny Faruque - deve1000">
+        <meta name="robots" content="index, follow">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+          <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js">
+        </script>
+
+          <script src="/load.js">  </script><script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.4.0/gsap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.4.0/CSSRulePlugin.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.4.0/Draggable.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.4.0/ScrollToPlugin.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.4.0/ScrollTrigger.min.js"></script>
+
+
+        <style>
+
+body {
+  margin: 0;
+  padding: 0;
+  user-select: none;
+      font-family: Arial, sans-serif;
+    overflow: hidden;
+    
+}
+            
+/*LETTERS*/
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+a:hover {
+  text-decoration: underline;
+}
+/*MENU*/
+.nav {
+    padding: 1em;
+    float: right;
+}
+.header {
+    width: 100vw;
+    height: 5em;
+    position: relative;
+}
+.title {
+    float: left;
+    padding: 1em;
+    font-size: 2rem;
+}
+            
+.content{padding: 2em 0;
+    width: 100vw;
+            position: relative;
+            overflow: scroll;
+    height: 90vh;
+            }
+            
+.album img {
+  height: 75px;
+  width:75px;
+  overflow: hidden;
+    border: 2px solid white;
+    box-sizing: border-box;
+    margin: 0;
+    position: relative;
+}
+
+.album{
+        height: 45vh;
+     display: flex;
+    position: relative;
+    box-sizing: content-box;
+    overflow-x: scroll;
+    overflow-y: visible;
+            }
+            .f1{
+                flex-wrap: wrap;
+                flex-direction: column;
+} 
+        </style>
+</head>
+<body>
+ 
+    <div class="content">
+<div class="album f1">
+  </div>
+        
+        </div></body>
+    <script>
+        gsap.registerPlugin(ScrollToPlugin);
+
+         var folder = "mk-square/";
+$.ajax({
+    url : folder,
+    success: function (data) {
+        $(data).find("a").attr("href", function (i, val) {
+            if( val.match(/\.(jpe?g|png|gif)$/) ) { 
+                $(".album").append( "<img class='faseeen' src='"+ val +"'>" );
+            } 
+        });
+    }, complete: function(){
+        
+Draggable.create(".faseeen");
+
+        $('.album img').click(function(){
+            
+ 
+ 
+            
+        if ($(this).hasClass('faseeen')){ 
+            
+             var $this = $(this);
+var $document = $(this).parent('.album');
+            var hbr = $($document).width() / 2;
+
+  var tlf1= gsap.timeline({paused:true});
+
+            function gaNu(){
+                         $('.album img').removeClass('faseeen').addClass('fasetwee');
+                        }
+     tlf1       //    .to('.content',{duration:5, height:'90vh'})
+//.to('.faseeen',{duration:5, height:150,width:150})
+           // .to('.album',{duration:5, width:'calc(2*(195*75px))'},7)
+       .to('.album',{duration:1,scale:2,yPercent: 50})
+        .to($document,{duration:0.5,scrollTo:{x:($document.scrollLeft()-(720-$this.offset().left))},onComplete:gaNu},"<");    
+            
+    
+           tlf1.play(); 
+                         
+        }else if($(this).hasClass('fasetwee')){
+           
+        
+             var $dit = $(this);
+var $alb = $(this).parent('.album');
+            var cur = $dit.offset().left - $alb.scrollLeft();
+            
+            $('.fasetwee').each(function() {
+            
+             var c=$(this).attr('src').replace('square','rect');
+            $(this).attr('src',c);
+            }); 
+            
+   var tlf2= gsap.timeline({paused:true});
+   tlf2 
+       //.to($dit,{duration:0.5,scale:4,y:-(($dit.offset().top)/2),yPercent:175})
+            .to('.fasetwee',{duration:0.1,height:"85vh",width:'auto'}).to($alb,{duration:0.1, scale:1, yPercent:0, height:"85vh"})
+            .to($alb,{duration:0.5, scrollTo:{x:$dit}})
+            
+            tlf2.play();
+            
+        }else{
+             //bij groot
+            }
+            
+            //Ik stop hier bij de twijfel of faseeeen class naar fasetweeclass via GSAP moet gedaan worden of via Jquery, momenteel gedaan via externe functie, ook het vervangen van de source img moet geprobeerd worden via GSAP anders kan er geclipt worden
+            
+        
+        });
+        
+    }
+});
+      /*
+$(document).on('click', '.album img', function(){
+  var $this = $(this),
+      $document = $('.album'),
+      currentOffset = $this.offset().left - $document.scrollLeft(),
+          daar = $this.offset().left - currentOffset;
+
+            alert(daar);
+            alert($this.offset().left);
+            alert(currentOffset);
+            alert($document.scrollLeft());
+       if ($(this).hasClass('fasetwee')){    
+            }else if($(this).hasClass('faseeen')){ 
+  $('.album img').animate({height: "200px", width:"200px"},100,function(){ 
+          $document.scrollLeft($this.offset().left - currentOffset);
+  alert($this.offset().left - currentOffset);});
+            }else {    }
+   });
+*/
+        
+</script>
+</html>

@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <title>Taart</title>
+        <link rel="icon" href="" type="image/jpg">
+        <meta name="keywords" content="">
+        <meta name="author" content="Deveny Faruque - deve1000">
+        <meta name="robots" content="index, follow">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+          <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js">
+        </script>
+
+          <script src="/load.js">  </script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.3.4/gsap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.3.4/CSSRulePlugin.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.3.4/ScrollToPlugin.min.js"></script>
+
+
+        <style>
+
+body {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  height: 100vh;
+  user-select: none;
+      font-family: Arial, sans-serif;
+}
+            
+/*LETTERS*/
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+a:hover {
+  text-decoration: underline;
+}
+/*MENU*/
+.nav {
+    padding: 1em;
+    float: right;
+}
+.header {
+    width: 100vw;
+    height: 5em;
+}
+.title {
+    float: left;
+    padding: 1em;
+    font-size: 2rem;
+}
+            
+.content{padding: 2em 0em;
+            position: relative;}
+            
+.album img {
+  height: 100px;
+  width:100px;
+  text-align: center;
+  overflow: hidden;
+    border: 2px solid white;
+}
+
+.album{
+  max-height:90vh;
+  display:flex;
+    overflow-x: scroll;
+            }
+            .f1{
+  flex-wrap:wrap;
+  flex-direction:column;
+
+}
+        </style>
+</head>
+<body>
+ 
+<div class="header">
+  <div class="title">
+    <a href="index.html">Taart in de brievenbus</a></div>
+<div class="nav">
+    <a href="javascript:void(0)" onclick="Open('work')" class="active">info</a>
+    <a href="javascript:void(0)" onclick="Open('work')" class="active">schudden</a>
+  </div></div>
+    <div class="content">
+<div class="album f1">
+  </div>
+        
+        </div></body>
+    <script>
+        gsap.registerPlugin(ScrollToPlugin);
+
+         var folder = "mk-square/";
+$.ajax({
+    url : folder,
+    success: function (data) {
+        $(data).find("a").attr("href", function (i, val) {
+            if( val.match(/\.(jpe?g|png|gif)$/) ) { 
+                $(".album").append( "<img class='faseeen' src='"+ val +"'>" );
+            } 
+        });
+    }, complete: function(){
+        
+
+        $('.album img').click(function(){
+            
+ 
+  var $this = $(this),
+      $document = $(this).parent('.album');
+            
+
+  var tlf1= gsap.timeline({paused:true});
+
+            function gaNu(){
+                         $('.album img').removeClass('faseeen').addClass('fasetwee');
+                        }
+         
+        
+     tlf1.to(".faseeen",{duration:1,ease: "back.out(1.7)",width:'200px',height:'200px'})
+         .to($document, {duration:1,scrollTo:{x:(($this.offset().left+$document.scrollLeft()) * 4)-400},onComplete:gaNu},"<");    
+            
+            
+            
+        if ($(this).hasClass('faseeen')){  
+           tlf1.play(); 
+                         
+        }else if($(this).hasClass('fasetwee')){
+            
+            
+   var tlf2= gsap.timeline({defaults: {duration: 1}, paused:true});
+   tlf2.to('.fasetwee',{height:'80vh',width:'auto'});
+            
+            tlf2.play();
+            
+        }else{
+             //bij groot
+            }
+            
+            //Ik stop hier bij de twijfel of faseeeen class naar fasetweeclass via GSAP moet gedaan worden of via Jquery, momenteel gedaan via externe functie, ook het vervangen van de source img moet geprobeerd worden via GSAP anders kan er geclipt worden
+            
+        
+        });
+        
+    }
+});
+      /*
+$(document).on('click', '.album img', function(){
+  var $this = $(this),
+      $document = $('.album'),
+      currentOffset = $this.offset().left - $document.scrollLeft(),
+          daar = $this.offset().left - currentOffset;
+
+            alert(daar);
+            alert($this.offset().left);
+            alert(currentOffset);
+            alert($document.scrollLeft());
+       if ($(this).hasClass('fasetwee')){    
+            }else if($(this).hasClass('faseeen')){ 
+  $('.album img').animate({height: "200px", width:"200px"},100,function(){ 
+          $document.scrollLeft($this.offset().left - currentOffset);
+  alert($this.offset().left - currentOffset);});
+            }else {    }
+   });
+*/
+        
+</script>
+</html>

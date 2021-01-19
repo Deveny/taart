@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <title>Helenahhh</title>
+        <link rel="icon" href="" type="image/jpg">
+        <meta name="keywords" content="">
+        <meta name="author" content="Deveny Faruque - deve1000">
+        <meta name="robots" content="index, follow">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link href="https://fonts.googleapis.com/css?family=Kanit|Montserrat|Montserrat+Subrayada|Roboto|Rubik|Signika+Negative&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css?family=Roboto:100,300,400&display=swap" rel="stylesheet">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+          <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+
+        <style>
+
+body {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  background-color: lightsteelblue;
+  color: white;
+  height: 100vh;
+  user-select: none;
+  box-shadow: 2px 2px 30px aquamarine inset, -2px -2px 30px aquamarine inset;
+  overflow-x: scroll;
+}
+.test-section {
+  height: 100px;
+  width:100px;
+  text-align: center;
+  overflow: hidden;
+}
+
+.test-section h1 {
+  color: white;
+  font-size: 40px;
+  text-shadow: 1px 1px 1px rgba(0, 0, 0, .5);
+}
+
+
+.wrapper{
+    width: 100vw;
+  height:90vh;
+    border: 10px solid black;
+  display:flex;
+  flex-wrap:wrap;
+  flex-direction:column;
+
+}
+        </style>
+</head>
+<body>
+<body>
+ 
+
+<div class="wrapper">
+  <section class="test-section"><h1>0</h1></section>
+  </div></body>
+    </body>
+    <script>
+        
+$(document).on('click', '.test-section', function(){
+  var $this = $(this),
+      $document = $(document),
+      currentOffset = $this.offset().left - $document.scrollLeft();
+  $('.test-section').animate({height: "800px", width:"800px"},100,function(){ 
+          $document.scrollLeft($this.offset().left - currentOffset);
+
+  });
+  // credit goes to Jeff B from StackOverflow: http://stackoverflow.com/a/9834241/1784564 
+});
+
+$('.close-info').on('click', function() {
+  $('.info').animate({ width: 0 }, 500);
+});
+
+// Doesn't matter
+var getRandomRGB = function() {
+  var color = 'rgb(';
+  color += getRandomInt(0, 255) + ', ';
+  color += getRandomInt(0, 255) + ', ';
+  color += getRandomInt(0, 255);
+  color += ')';
+  
+  return color;
+};
+
+var getRandomInt = function(min, max) {
+  return Math.floor(Math.random() * (max - min + 1) + min);
+};
+
+var testSection = $('.test-section');
+var wrapper = $('.wrapper');
+
+for (var i = 1; i <= 100; i++) {
+  testSection.clone().css('background-color', getRandomRGB()).appendTo(wrapper).find('h1').text(i);
+}
+        
+</script>
+</html>

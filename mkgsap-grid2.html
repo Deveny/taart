@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <title>Taart</title>
+        <link rel="icon" href="" type="image/jpg">
+        <meta name="keywords" content="">
+        <meta name="author" content="Deveny Faruque - deve1000">
+        <meta name="robots" content="index, follow">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+          <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js">
+        </script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.4.0/gsap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.4.0/CSSRulePlugin.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.4.0/Draggable.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.4.0/ScrollToPlugin.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.4.0/ScrollTrigger.min.js"></script>
+    <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/jquery.lazy/1.7.9/jquery.lazy.min.js"></script>
+    <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/jquery.lazy/1.7.9/jquery.lazy.plugins.min.js"></script>
+                
+
+
+        <style>
+
+body {
+  margin: 0;
+  padding: 0;
+  user-select: none;
+      font-family: Arial, sans-serif;
+    
+}
+            
+/*LETTERS*/
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+a:hover {
+  text-decoration: underline;
+}
+.nav {
+    padding: 1em;
+    float: right;
+}
+.header {
+    position: fixed;
+    width: 100vw;
+    height: 5em;
+}
+.title {
+    float: left;
+    padding: 1em;
+    font-size: 2rem;
+}
+/*EVENTS*/
+            
+.events {
+    height: 75vh;
+    margin: 4em auto;
+            }
+.events img{
+    height: 100%;
+            }
+
+            
+.content{padding:0;
+            position: relative;
+            overflow: scroll;
+    height: 90vh;
+    text-align: right;
+            }
+            
+.album img {
+  height: 75px;
+    width:auto;
+  overflow: hidden;
+    border-width: 1px;
+    border-style: solid;
+    border-color: white;
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0em;
+    position: relative;
+      align-self: center;
+}
+            
+.album{
+align-content: start;
+    
+    justify-content: center;
+    display: inline-grid;
+      grid-template-columns: repeat(97, minmax(75px, 1fr)); 
+
+   /* width: calc(75px * (387/3.95));*/
+    position: relative;
+      direction: rtl;
+max-height: 85vh;
+            }
+            .calbum{
+                position: fixed;
+                display: none;
+top: 0;
+  right: 0;
+                height: 90vh;
+                width: 100vw;
+                z-index: 200;
+                text-align: center;
+                border: 2px solid pink;
+            }
+            
+.grow-left > * {
+  direction: ltr;
+}
+            .f1{
+} 
+        </style>
+</head>
+<body>
+ <div class="header">
+  <div class="title">
+    <a href="index.html">Taart in de brievenbus</a></div>
+<div class="nav">
+    <a href="javascript:void(0)" onclick="Open('work')" class="active">info</a>
+    <a href="javascript:void(0)" onclick="Open('work')" class="active">schudden</a>
+  </div></div>
+    <div class="content">
+<div class="album f1">  </div>
+
+    <div class="calbum"></div>
+        
+        </div></body>
+    <script>
+        
+         
+        
+        gsap.registerPlugin(ScrollToPlugin);
+
+         var rfolder = "mk-rect/";
+        var sfolder = "mk-square/";
+
+$.ajax({
+    url : rfolder,
+    success: function (data){
+        $(data).find('a').attr('href',function(i,val){
+            if( val.match(/\.(jpe?g|png|gif)$/) ) { 
+                $(".calbum").append( "<img class='lazy' data-src='"+ val +"'>" );
+            }  
+        })
+    }, complete: function(){
+        $(function() {
+        $('.lazy').Lazy();
+    });
+    }
+});
+$.ajax({
+    url : sfolder,
+    success: function (data) {
+        $(data).find("a").attr("href", function (i, val) {
+            if( val.match(/\.(jpe?g|png|gif)$/) ) { 
+                $(".album").append( "<img class='faseeen' src='"+ val +"'>" );
+            } 
+        });
+    }, complete: function(){
+        
+
+        $('.album img').click(function(){
+            
+ 
+ 
+            
+        if ($(this).hasClass('faseeen')){ 
+                        var ind = 1 +($( "img" ).index( this ));
+
+             var $this = $(this);
+var $document = $(this).parent('.album');
+            var hbr = $($document).width() / 2;
+var ok = $('.content');
+  var tlf1= gsap.timeline({paused:true});
+
+            function gaNu(){
+                         $('.album img').removeClass('faseeen').addClass('fasetwee');
+                        }
+     tlf1      
+.to('.faseeen',{duration:0.5, height:150,width:150,borderWidth:4,
+  stagger: {
+    grid: 'auto',
+    from: ind,
+    amount: 0.5
+  }})
+.to('.album',{duration:1,gridTemplateColumns:"repeat(rij, minmax(150px, 1fr)"},"<")
+.to('.album',{duration:1,width:14696},"<")
+.to('.content',{duration:1,scrollTo:{x:((ok.scrollLeft()*2)+720)},onComplete:gaNu},'<')
+            .fromTo('.faseeen',{opacity:0.4},{duration:1,opacity:1},'<');    
+            
+    
+           tlf1.play(); 
+                         
+        }else if($(this).hasClass('fasetwee')){
+           
+        var dit = $(this);
+            var am = $(this).prev('img');
+            var pm = $(this).next('img');
+            var ind = 1 +($( "img" ).index( this ));
+            var ai = $('.album img').length;
+            var rij = Math.round((ai/4));
+            var t = $(this).offset().left;
+ 
+          // src
+           //  $('.fasetwee').each(function() { var c=$(this).attr('src').replace('square','rect');  $(this).attr('src',c);      }); 
+            
+         var tlf2 = gsap.timeline({defaults:{duration:3}})
+  tlf2.to('.fasetwee',{scale:0.4, opacity:0,
+  stagger: {
+    grid: 'auto',
+    from: ind,
+    amount: 0.5
+  }})
+            .to('.calbum',{display:'block'})
+         //   .fromTo(dit,{position:'relative',left:t},{position:'fixed', top:0, left:'25vw',zIndex:'+1', height:'80vh',width:'80vh'})
+           // .fromTo('.calbum',{position:'relative',left:t},{position:'fixed', top:0, left:'15vw',zIndex:'+1', height:'80vh',width:'80vh'})
+            
+         //   tlf2.play();
+            
+        }
+            else{
+             //bij groot
+            }
+            
+            //Ik stop hier bij de twijfel of faseeeen class naar fasetweeclass via GSAP moet gedaan worden of via Jquery, momenteel gedaan via externe functie, ook het vervangen van de source img moet geprobeerd worden via GSAP anders kan er geclipt worden
+            
+        
+        });
+        
+    }
+});
+      /*
+$(document).on('click', '.album img', function(){
+  var $this = $(this),
+      $document = $('.album'),
+      currentOffset = $this.offset().left - $document.scrollLeft(),
+          daar = $this.offset().left - currentOffset;
+
+            alert(daar);
+            alert($this.offset().left);
+            alert(currentOffset);
+            alert($document.scrollLeft());
+       if ($(this).hasClass('fasetwee')){    
+            }else if($(this).hasClass('faseeen')){ 
+  $('.album img').animate({height: "200px", width:"200px"},100,function(){ 
+          $document.scrollLeft($this.offset().left - currentOffset);
+  alert($this.offset().left - currentOffset);});
+            }else {    }
+   });
+*/
+        
+</script>
+</html>

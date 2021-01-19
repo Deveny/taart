@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <title>Taart</title>
+        <link rel="icon" href="" type="image/jpg">
+        <meta name="keywords" content="">
+        <meta name="author" content="Deveny Faruque - deve1000">
+        <meta name="robots" content="index, follow">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+          <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js">
+        </script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.4.0/gsap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.4.0/CSSRulePlugin.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.4.0/Draggable.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.4.0/ScrollToPlugin.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.4.0/ScrollTrigger.min.js"></script>
+
+
+        <style>
+
+body {
+  margin: 0;
+  padding: 0;
+      font-family: Arial, sans-serif;
+    
+}
+            
+/*LETTERS*/
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+a:hover {
+  text-decoration: underline;
+}
+/*MENU*/
+.nav {
+    padding: 1em;
+    float: right;
+}
+.header {
+    width: 100vw;
+    height: 5em;
+    position: relative;
+}
+.title {
+    float: left;
+    padding: 1em;
+    font-size: 2rem;
+}
+            
+.content{
+            position: relative;
+            overflow: scroll;
+    height: 90vh;
+    text-align: center;
+    width: 15000px;
+            }
+            
+.album img {
+  height: 75px;
+  width:auto;
+  overflow: hidden;
+    border: 2px solid white;
+    box-sizing: border-box;
+    margin: 0;
+    position: relative;
+      align-self: center;
+
+}
+
+.album{
+align-content: start;
+    
+    justify-content: center;
+    display: inline-grid;
+      grid-template-columns: repeat(97, minmax(75px, 1fr)); 
+
+   /* width: calc(75px * (387/3.95));*/
+    position: relative;
+      direction: rtl;
+max-height: 85vh;
+            }
+            
+.grow-left > * {
+  direction: ltr;
+}
+            .f1{
+} 
+    
+            .outer{
+                text-align: center;
+                width: 100vw;
+overflow: scroll;
+            }
+            .inner{
+                width: 200%;
+                border: 3px solid pink;
+                height: 20px;  
+  margin: 0;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);            }
+            img {
+  height: 75px;
+  width:auto;
+  overflow: hidden;
+    border: 2px solid white;
+    box-sizing: border-box;
+    margin: 0;
+    position: relative;
+      align-self: center;
+
+}
+        </style>
+</head>
+<body>
+ 
+    
+    <div class="outer">  <p>ghj</p>
+
+    <div class="inner">
+        <img class="faseeen" src="mk-square/mk-10.jpg">
+        <img class="faseeen" src="mk-square/mk-10.jpg">
+        <img class="faseeen" src="mk-square/mk-10.jpg">
+        <img class="faseeen" src="mk-square/mk-10.jpg">
+        <img class="faseeen" src="mk-square/mk-10.jpg">
+        <img class="faseeen" src="mk-square/mk-10.jpg">
+        <img class="faseeen" src="mk-square/mk-10.jpg">
+        <img class="faseeen" src="mk-square/mk-10.jpg">
+        <img class="faseeen" src="mk-square/mk-10.jpg">
+        <img class="faseeen" src="mk-square/mk-10.jpg">
+        <img class="faseeen" src="mk-square/mk-10.jpg">
+        <img class="faseeen" src="mk-square/mk-10.jpg">
+        <img class="faseeen" src="mk-square/mk-10.jpg">
+        <img class="faseeen" src="mk-square/mk-10.jpg">
+        <img class="faseeen" src="mk-square/mk-10.jpg">
+        <img class="faseeen" src="mk-square/mk-10.jpg">
+        <img class="faseeen" src="mk-square/mk-10.jpg">
+        <img class="faseeen" src="mk-square/mk-10.jpg">
+    </div>
+    </div>
+    </body>
+    <script>
+        gsap.registerPlugin(ScrollToPlugin);
+
+         var folder = "mk-square/";
+        
+        $('p').on('click',function(){
+            
+  var tlf1= gsap.timeline({paused:true});
+        
+     tlf1      
+.to('.inner',{duration:0.5, scale:2})
+         //   .to('.faseeen',{duration:0.5, height:150,width:150},"<")
+//.to('.album',{duration:1,gridTemplateColumns:"repeat(rij, minmax(150px, 1fr)"},"<")
+//.to('.album',{duration:1,width:14696,onComplete:gaDan},"<")
+//.to('.content',{duration:1,scrollTo:{x:((ok.scrollLeft()*2)+720)},onComplete:gaNu},'<');    
+            tlf1.play(); 
+        });
+        
+                         
+      /*
+$(document).on('click', '.album img', function(){
+  var $this = $(this),
+      $document = $('.album'),
+      currentOffset = $this.offset().left - $document.scrollLeft(),
+          daar = $this.offset().left - currentOffset;
+
+            alert(daar);
+            alert($this.offset().left);
+            alert(currentOffset);
+            alert($document.scrollLeft());
+       if ($(this).hasClass('fasetwee')){    
+            }else if($(this).hasClass('faseeen')){ 
+  $('.album img').animate({height: "200px", width:"200px"},100,function(){ 
+          $document.scrollLeft($this.offset().left - currentOffset);
+  alert($this.offset().left - currentOffset);});
+            }else {    }
+   });
+*/
+        
+</script>
+</html>

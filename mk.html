@@ -9,11 +9,8 @@
         <meta name="robots" content="index, follow">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-          <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js">
-        </script>
+          <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
      
-          <script src="/load.js">
-        </script>
 
         <style>
 /*BASIC BODY*/
@@ -99,7 +96,12 @@ height: 200px;
             width: auto;
             box-sizing: border-box;
 }
-            
+            .frame{
+                border: 2px solid red;
+                z-index: 200;
+                height: 200px;
+                width: 200px;
+            }
         </style>
 </head><body><div class="header">
   <div class="title">
@@ -116,31 +118,66 @@ height: 200px;
     </div>
 </body>
     <script>
+         var folder = "mk-square/";
+$.ajax({
+    url : folder,
+    success: function (data) {
+        $(data).find("a").attr("href", function (i, val) {
+            if( val.match(/\.(jpe?g|png|gif)$/) ) { 
+                $(".album").append( "<img class='faseeen' src='"+ val +"'>" );
+            } 
+        });
+    }, complete: function(){
+        
 
-$(document).on('click', '.album img', function(){
-
-  var $this = $(this),
-      $document = $(this).parent(".album"),
-      currentOffset = $this.offset().left - $document.scrollLeft();
+    $('.album img').on("click",function(e){
+                    var dit= $(this); 
 
         if ($(this).hasClass('fasetwee')){
             
-         
+            /*WRAP TO NOWRAP*/
+            $(this).parent('.album').removeClass('f1').addClass('f3');
+            
+            /*2 NAAR 3 +*/ 
+            $('.album img').removeClass('fasetwee').addClass('fasedrie');
+                                    
+            /*SCROLL NAAR ACTUELE*/
+            
+            /* VIERKANT NAAR RECHTHOEK*/
+            $('.album img').each(function(){
+             var c=$(this).attr('src').replace('square','rect');
+            $(this).attr('src',c);
+            }).one("load",function(){ //fires (only once) when loaded
+                        $(dit)[0].scrollIntoView(true);
+});         
             }else if($(this).hasClass('faseeen')){
                 
             /*1 NAAR 2*/
+        /* $('.album img').animate({height: "200px", width:"200px"},function(){ //fires (only once) when loaded
+                        $(dit)[0].scrollIntoView(true);
+});        */
                 
-          
- 
-  $('.album img').animate({height: "200px", width:"200px"},100,function(){ 
-          $document.scrollLeft($this.offset().left - currentOffset);
+                
+          $('.album img').animate({height: "200px", width:"200px"},function(){ //fires (only once) when loaded
+                        $('.album').animate({ scrollLeft: dit.position().left });
+});          
+                
+        $('.album').append("<div class='frame'></div>");
+                  var pos = dit.position();
+var xx = pos.left;
+var yy= pos.top;  
+                $('.frame').css({top: yy, left: xx, position: 'absolute'});
+            }
+                else {
+            $(this)[0].scrollIntoView(true);
 
-  });
-            }else {
-                                               /*al in  3*/
             }
     });
-          
+        
+    }
+
+});
+            
         
         
 $( document ).ready(function() {
