@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+<<<<<<< HEAD
+        <title>Taart</title>
+=======
+        <title>taart</title>
+>>>>>>> 8a940d90ee262f792201fdcdceefffdd042a4fb3
+        <link rel="icon" href="" type="image/jpg">
+        <meta name="keywords" content="">
+        <meta name="author" content="Deveny Faruque - deve1000">
+        <meta name="robots" content="index, follow">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+          <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+     
+
+        <style>
+/*BASIC BODY*/
+body {
+  margin: 0;
+  padding: 0;
+  box-sizing:content-box;
+  height: 100%;
+  width: 100vw;
+  font-family: Arial, sans-serif;
+  user-select: none;
+}
+/*LETTERS*/
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+a:hover {
+  text-decoration: underline;
+}
+/*MENU*/
+.nav {
+    padding: 1em;
+    float: right;
+}
+.header {
+    position: fixed;
+    width: 100vw;
+    height: 5em;
+}
+.title {
+    float: left;
+    padding: 1em;
+    font-size: 2rem;
+}
+/*EVENTS*/
+.content{padding: 2em;
+    text-align: center;
+            position: relative;}
+            
+.events {
+    height: 75vh;
+    margin: 4em auto;
+            }
+.events img{
+    height: 100%;
+            }
+
+            
+/*MARIAKERKE*/
+.album{
+    margin: 0em auto;
+           display: flex; 
+    height: 80vh;
+    overflow-x: scroll;
+}
+            
+.f1{flex-wrap: wrap;
+            align-content: center;
+            justify-content: center;
+    align-self: center;
+            
+    width: 95vw;
+    flex-direction: column;}
+.f3{flex-wrap: nowrap;
+    scroll-snap-type: x mandatory;
+      scroll-padding: -50vw;
+      justify-content: flex-start;
+            }
+            
+            .faseeen:hover, .fasetwee:hover{border: 4px solid white;}
+            
+.faseeen{cursor: zoom-in;
+            width: 50px;
+            height: auto;}
+.fasetwee{  width: 200px;
+height: 200px;
+    border: 1px solid white;
+}
+.fasedrie{  height: 80vh;
+            width: auto;
+              scroll-snap-align: start;
+}
+
+        </style>
+</head><body><div class="header">
+  <div class="title">
+    <a href="index.html">Taart in de brievenbus</a></div>
+<div class="nav">
+    <a href="javascript:void(0)" onclick="Open('work')" class="active">info</a>
+    <a href="javascript:void(0)" onclick="Open('work')" class="active">schudden</a>
+  </div></div>
+    <div class="content">
+        <a href="mariakerke.html">
+    <div class="events">            <img alt="achterzijde" src="Postkaart/mariakerke-vz.jpg">
+        </div></a>
+        <a href="mariakerke.html">
+    <div class="events">            <img alt="achterzijde" src="Postkaart/antwerpen-vz.jpg">
+        </div></a>
+        <a href="mariakerke.html">
+    <div class="events">            <img alt="achterzijde" src="Postkaart/horebeke-vz.jpg">
+        </div></a>
+    
+    
+    </div>
+</body>
+    <script>
+$('.events img').hover(function(){
+    var a=$(this).attr('src').replace('vz','sz');
+    $(this).attr('src',a);
+},function(){
+    var b=$(this).attr('src').replace('sz','vz');
+    $(this).attr('src',b);
+});            
+        
+</script>
+</html>
