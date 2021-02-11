@@ -1,0 +1,89 @@
+%!Adobe-FontList 1.22
+%Locale:0x409
+
+%BeginFont
+Handler:DirectoryHandler
+FontType:Invalid
+OutlineFileName:/Users/stijnvanrenterghem/Documents/taart in de brievenbus/layout 2 taart in de brievenbus Folder/Document fonts/AdobeFnt22.lst
+FileLength:1929
+FileModTime:634392843
+%EndFont
+
+%BeginFont
+Handler:DirectoryHandler
+FontType:Type1
+FontName:Compagnon-Light
+FamilyName:Compagnon
+StyleName:Light
+MenuName:Compagnon Light
+StyleBits:0
+WeightClass:400
+WidthClass:5
+AngleClass:0
+FullName:Compagnon Light
+WritingScript:Roman
+OutlineFileName:/Users/stijnvanrenterghem/Documents/taart in de brievenbus/layout 2 taart in de brievenbus Folder/Document fonts/Compagnon-Light.otf
+DataFormat:sfntData
+UsesStandardEncoding:yes
+isCFF:yes
+hasSVG:no
+VariableFontType:NonVariableFont
+FileLength:52068
+FileModTime:557916620
+NameArray:0,Mac,4,Compagnon Light
+NameArray:0,Win,1,Compagnon Light
+NameArray:0,Win,16,Compagnon
+%EndFont
+
+%BeginFont
+Handler:DirectoryHandler
+FontType:Type1
+FontName:Compagnon-Medium
+FamilyName:Compagnon
+StyleName:Medium
+MenuName:Compagnon Medium
+StyleBits:0
+WeightClass:600
+WidthClass:5
+AngleClass:0
+FullName:Compagnon Medium
+WritingScript:Roman
+OutlineFileName:/Users/stijnvanrenterghem/Documents/taart in de brievenbus/layout 2 taart in de brievenbus Folder/Document fonts/Compagnon-Medium.otf
+DataFormat:sfntData
+UsesStandardEncoding:yes
+isCFF:yes
+hasSVG:no
+VariableFontType:NonVariableFont
+FileLength:22568
+FileModTime:553040224
+NameArray:0,Mac,4,Compagnon Medium
+NameArray:0,Win,1,Compagnon Medium
+NameArray:0,Win,16,Compagnon
+%EndFont
+
+%BeginFont
+Handler:DirectoryHandler
+FontType:Type1
+FontName:Compagnon-Bold
+FamilyName:Compagnon
+StyleName:Bold
+MenuName:Compagnon Bold
+StyleBits:0
+WeightClass:700
+WidthClass:5
+AngleClass:0
+FullName:Compagnon Bold
+WritingScript:Roman
+OutlineFileName:/Users/stijnvanrenterghem/Documents/taart in de brievenbus/layout 2 taart in de brievenbus Folder/Document fonts/Compagnon-Script.otf
+DataFormat:sfntData
+UsesStandardEncoding:yes
+isCFF:yes
+hasSVG:no
+VariableFontType:NonVariableFont
+FileLength:33408
+FileModTime:558141729
+NameArray:0,Mac,4,Compagnon Bold
+NameArray:0,Win,1,Compagnon Bold
+NameArray:0,Win,16,Compagnon
+%EndFont
+
