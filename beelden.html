@@ -29,7 +29,6 @@
 }  
             *{
                     box-sizing: border-box;
-                transition: display 1s;
 
             }
             
@@ -97,16 +96,16 @@ width: 100%;
     font-family: compscript;
     font-size:36px;
     margin-right: 0.5rem;
-    transition: display 0.5s;
-            }
-            .top a:hover, .bottom a:hover{
-                font-family: compmedium;
-                transition: display 0.5s;
             }
             .sub a{
+                font-family: compscript;
                 margin-right: 1rem;
             }
-            .sub, #shake{display: none;}
+              .sub a.active{
+                font-family: compmedium;
+            }
+            
+             #shake{display: none;}
 #title {
 }
             #about {
@@ -134,9 +133,9 @@ position: absolute;
                 font-family: compscript;
                 text-align: right;
             }
-            .event-name:hover{
+            .event-name:hover, 
+            .top a:hover, .bottom a:hover, .sub a:hover{
                 font-family: compmedium;
-                transition: display 0.5s;
             }
             .line{width: 33vw;
                 position: absolute;
@@ -147,7 +146,7 @@ position: absolute;
 </head><body><div class="main"><div class="header"><div class="top">
     <a href="index.html" id="title">Taart in de brievenbus</a>
     <a href="about.html" id="about">About</a></div><hr>
-    <div class="sub"><a href="javascript:void(0)">mariakerke</a><a href="javascript:void(0)">antwerpen</a><a href="javascript:void(0)">horebeke</a></div>
+    <div class="sub"><a class="active" href="javascript:void(0)">Mariakerke</a><a href="javascript:void(0)">Antwerpen</a><a href="javascript:void(0)">Horebeke</a></div>
 </div>
     <div class="content">
     <div class="event" id="upcomming"><p class="when">upcomming</p><img alt="achterzijde" height="100%" src="Postkaart/toekomst.png"><p class="event-name">Mariakerke 2019</p>
